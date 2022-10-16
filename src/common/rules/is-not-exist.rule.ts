@@ -1,5 +1,11 @@
 import { PrismaClient } from "@prisma/client";
 import { registerDecorator, ValidationArguments, ValidationOptions } from "class-validator";
+
+/**
+ * 
+ * @param table 要查询的表格
+ * @param validationOptions 返回的提示
+ */
 export function IsNotExistsRule(table: string, validationOptions: ValidationOptions){
   return function(object: Record<string, any>, propertyName: string){
     registerDecorator({
