@@ -10,8 +10,6 @@ export function IsNotExistsRule(table: string, validationOptions: ValidationOpti
       options: validationOptions,
       validator: {
         async validate(value: string, args: ValidationArguments){
-          console.log(args);
-          
           const prisma = new PrismaClient();
           const res = await prisma[table].findFirst({
             where: {
